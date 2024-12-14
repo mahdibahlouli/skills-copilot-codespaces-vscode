@@ -53,5 +53,17 @@ const server = http.createServer((req, res) => {
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'Internal server error' }));
       } else {
-        res.writeHead(204, { 'Content-Type': 'application/json' });
+                res.writeHead(204, { 'Content-Type': 'application/json' });
+                res.end();
+              }
+            });
+          } else {
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Not found' }));
+          }
+        });
+        
+        server.listen(3000, () => {
+          console.log('Server is listening on port 3000');
+        });
 
